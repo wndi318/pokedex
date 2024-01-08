@@ -1,19 +1,55 @@
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgb(111, 111, 111);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(215, 215, 215);
+    box-shadow: inset 0 0 6px rgb(128, 128, 128);
+}
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    max-width: 1920px;
 }
 
 nav {
     display: flex;
     justify-content: space-around;
-    align-items: start;
+    align-items: center;
     background-color: rgb(215, 215, 215);
+    box-shadow: inset 0 0 6px rgb(128, 128, 128);
 }
-nav h1 {
-    margin-right: 180px;
-}
+
 nav img {
     height: 50px;
+}
+
+nav h1:hover {
+    cursor: pointer;
+}
+
+nav input {
+    border-radius: 8px;
+    border: 0;
+    background-color: white;
+    padding: 8px
+}
+
+nav button {
+    border-radius: 8px;
+    border: 0;
+    background-color: white;
+    padding: 8px
+}
+
+nav button:hover {
+   scale: 1.05;
+   transition: 250ms;
 }
 
 #loading-bar {
@@ -76,11 +112,12 @@ nav img {
 }
 
 .big-card {
-    margin-top: -50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    position: fixed;
-    margin-left: 33%;
     z-index: 2;
 }
 
@@ -88,7 +125,7 @@ nav img {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    height: 50vh;
+    height: 350px;
     background-color: #fa9292;
     width: 400px;
     color: white;
@@ -114,7 +151,7 @@ nav img {
 .attributs {
     display: flex;
     justify-content: center;
-    height: 50vh;
+    height: 48vh;
     border-radius: 40px;
     width: 400px;
     flex-direction: column;
@@ -179,6 +216,7 @@ td {
     margin-bottom: 20px;
     margin-top: 20px;
 }
+
 #load img {
     height: 32px;
 }
@@ -261,24 +299,6 @@ td {
     filter: blur(5px);
 }
 
-@media (max-width: 700px) {
-    .big-card {
-        margin-left: 25vh;
-    }
-}
-
-@media (max-width: 650px) {
-    .big-card {
-        margin-left: 10vh;
-    }
-}
-
-@media (max-width: 570px) {
-    .big-card {
-        margin-left: 28px;
-    }
-}
-
 @media (max-width: 420px) {
     .poke-big {
         width: 110%;
@@ -297,6 +317,19 @@ td {
     .attributs {
         width: 110%;
     }
+}
+
+@media (max-width: 450px) {
+   nav {
+    flex-direction: column;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+   }
+
+   nav h1{
+    text-align: center;
+   }
 }
 
 @media (max-width: 380px) {

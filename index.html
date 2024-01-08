@@ -15,9 +15,13 @@
 <body onload="renderPokemonInfo()">
     <nav>
         <div>
-            <h1>Pokedex</h1>
+            <h1 onclick="reloadPage()">Pokedex</h1>
         </div>
         <div id="loading-bar" class="d-none"><img src="img/spin.gif"></div>
+        <div>
+            <input id="input" placeholder="Search Pokemon..."></input>
+            <button onclick="filterPokemon()">Search</button>
+        </div>
     </nav>
     
     <div>

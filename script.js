@@ -21,21 +21,25 @@ async function renderPokemonInfo() {
 
         pokemonData.push({ name, number, type, height, weight, stats });
 
-        document.getElementById('cards').innerHTML += /*html*/`
-            <div id="card${j}" class="card-design" onclick="openCard(${j})">
-                <div id="pokedex">
-                    <h2 id="pokemon-name">${name}</h2>
-                    <h3>#${number}</h3>
-                </div>
-                <div class="info-container">
-                    <h3 id="type">${type}</h3>
-                    <img id="pokemon-image" src=${picture}>
-                </div>
-            </div>
-        `;
+        generateCards(name, number, type, picture, j);
         changeBackgroundColor(type, j);
     }
     document.getElementById("loading-bar").classList.add('d-none');
+}
+
+function generateCards(name, number, type, picture, j) {
+    document.getElementById('cards').innerHTML += /*html*/`
+        <div id="card${j}" class="card-design" onclick="openCard(${j})">
+            <div id="pokedex">
+                <h2 id="pokemon-name">${name}</h2>
+                <h3>#${number}</h3>
+            </div>
+            <div class="info-container">
+                <h3 id="type">${type}</h3>
+                <img id="pokemon-image" src=${picture}>
+            </div>
+        </div>
+    `;
 }
 
 async function loadMore() {
@@ -54,22 +58,25 @@ async function loadMore() {
 
         pokemonData.push({ name, number, type, height, weight, stats });
 
-        document.getElementById('cards').innerHTML += /*html*/`
-            <div id="card${j}" class="card-design" onclick="openCard(${j})">
-                <div id="pokedex">
-                    <h2 id="pokemon-name">${name}</h2>
-                    <h3>#${number}</h3>
-                </div>
-                <div class="info-container">
-                    <h3 id="type">${type}</h3>
-                    <img id="pokemon-image" src=${picture}>
-                </div>
-            </div>
-        `;
-
+        generateMoreCards(name, number, type, picture, j);
         changeBackgroundColor(type, j);
     }
     document.getElementById("loading-bar").classList.add('d-none');
+}
+
+function generateMoreCards(name, number, type, picture, j) {
+    document.getElementById('cards').innerHTML += /*html*/`
+        <div id="card${j}" class="card-design" onclick="openCard(${j})">
+            <div id="pokedex">
+                <h2 id="pokemon-name">${name}</h2>
+                <h3>#${number}</h3>
+            </div>
+            <div class="info-container">
+                <h3 id="type">${type}</h3>
+                <img id="pokemon-image" src=${picture}>
+            </div>
+        </div>
+    `;
 }
 
 async function changeBackgroundColor(type, j) {
@@ -85,6 +92,51 @@ async function changeBackgroundColor(type, j) {
 
     let className = typeClassMapping[type] || typeClassMapping['default'];
     card.classList.add(className);
+}
+
+function filterPokemon() {
+    let search = document.getElementById('input').value.toLowerCase();
+
+    for (let i = 0; i < pokemon.length; i++) {
+        let element = pokemon[i];
+        let card = document.getElementById(`card${i}`);
+        
+        if (element.toLowerCase().includes(search)) {
+            handleVisibleCard(card, element, i);
+        } else {
+            handleHiddenCard(card);
+        }
+    }
+}
+
+function handleVisibleCard(card, element, index) {
+    if (card) {
+        card.classList.remove('d-none');
+    } else {
+        createPokemonCard(element, index);
+    }
+}
+
+function handleHiddenCard(card) {
+    if (card) {
+        card.classList.add('d-none');
+    }
+}
+
+function createPokemonCard(element, index) {
+    const query = element;
+    let pokelink = `https://pokeapi.co/api/v2/pokemon/${query}`;
+    fetch(pokelink)
+        .then(response => response.json())
+        .then(currentPokemon => {
+            let name = currentPokemon['name'];
+            let picture = currentPokemon['sprites']['other']['dream_world']['front_default'];
+            let number = currentPokemon['id'];
+            let type = currentPokemon['types']['0']['type']['name'];
+            pokemonData.push({ name, number, type });
+            generateCards(name, number, type, picture, index);
+            changeBackgroundColor(type, index);
+        });
 }
 
 function openCard(j) {
@@ -204,4 +256,8 @@ function closeCard() {
     document.getElementById('show-card').classList.add('d-none');
     document.getElementById('cards').classList.remove('filter');
     document.getElementById('load').classList.remove('filter');
+}
+
+function reloadPage() {
+    location.reload();
 }
