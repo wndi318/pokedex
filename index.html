@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="fonts.css">
+    <link rel="icon" type="image/png" href="img/load.png">
+    <script src="script.js"></script>
+    <title>Pokedex-App</title>
+</head>
+
+<body onload="renderPokemonInfo()">
+    <nav>
+        <div>
+            <h1>Pokedex</h1>
+        </div>
+        <div id="loading-bar" class="d-none"><img src="img/spin.gif"></div>
+    </nav>
+    
+    <div>
+        <div id="show-card" class="d-none">
+            <div class="big-card">
+                <div class="poke-big">
+                    <img src="img/back.png" onclick="lastCard()">
+                    <img src="img/next.png" onclick="nextCard()">
+                    <h1>Pokemon</h1>
+                    <img src="img/close.png" onclick="closeCard()">
+                </div>
+                <div class="attributs">
+                    <div class="card-img">
+                        <img
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg">
+                    </div>
+                    <div class="headlines">
+                        <h3>About</h3>
+                        <h3>Base Stats</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cards">
+    </div>
+    <div id="load">
+        <button onclick="loadMore()">LOAD M<img src="img/load.png">RE...</button>
+    </div>
+</body>
+
+</html>

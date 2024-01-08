@@ -1,0 +1,310 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    background-color: rgb(215, 215, 215);
+}
+nav h1 {
+    margin-right: 180px;
+}
+nav img {
+    height: 50px;
+}
+
+#loading-bar {
+    position: fixed;
+}
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-design {
+    height: 200px;
+    width: 320px;
+    border-radius: 16px;
+    color: white;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-image: url(/img/poke_ball.png);
+    background-repeat: no-repeat;
+    background-position: 200px 80px;
+    background-size: 150px;
+}
+
+.card-design:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: 250ms;
+}
+
+#pokedex {
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.info-container img {
+    height: 100px;
+}
+
+.info-container h3 {
+    background-color: #ffffff2f;
+    border-radius: 16px;
+    height: 20px;
+    padding: 10px;
+}
+
+.d-none {
+    display: none;
+}
+
+.big-card {
+    margin-top: -50px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    margin-left: 33%;
+    z-index: 2;
+}
+
+.poke-big {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    height: 50vh;
+    background-color: #fa9292;
+    width: 400px;
+    color: white;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.poke-big h1 {
+    margin-block-start: 0;
+    margin-top: 10px;
+}
+
+.poke-big img {
+    height: 30px;
+    margin-top: 10px;
+}
+
+.poke-big img:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+.attributs {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    border-radius: 40px;
+    width: 400px;
+    flex-direction: column;
+    background-color: white;
+    margin-top: -40px;
+}
+
+.attributs img {
+    height: 250px;
+    margin-top: -360px;
+}
+
+.card-img {
+    display: flex;
+    justify-content: center;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -100px;
+}
+
+.about button {
+    background-color: white;
+    border: 0px;
+    padding: 8px;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.about button:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: 250ms;
+}
+
+
+td {
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+#stats {
+    height: 250px;
+    margin-bottom: -50px;
+}
+
+#stats h3 {
+    margin-block-start: 0;
+}
+
+#load {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#load img {
+    height: 32px;
+}
+
+#load button {
+    font-size: 20px;
+    border-radius: 8px;
+    border: 2px solid rgb(49, 49, 49);
+    background-color: white;
+    padding: 10px;
+}
+
+#load button:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+
+.feuer {
+    background-color: #fa9292;
+}
+
+.wasser {
+    background-color: #76BFFE;
+}
+
+.pflanze {
+    background-color: #47D1B1;
+}
+
+.braun {
+    background-color: #918469;
+}
+
+.kaefer {
+    background-color: #94A314;
+}
+
+.gift {
+    background-color: #88357B;
+}
+
+.boden {
+    background-color: #B69130;
+}
+
+.fee {
+    background-color: #CC72CD;
+}
+
+.psycho {
+    background-color: #CD3C70;
+}
+
+.kampf {
+    background-color: #792E1C;
+}
+
+.gestein {
+    background-color: #A18732;
+}
+
+.geist {
+    background-color: #404096;
+}
+
+.eis {
+    background-color: #309FBE;
+}
+
+.drache {
+    background-color: #5537CA;
+}
+
+.none {
+    background-color: #FFD86F;
+}
+
+.filter {
+    filter: blur(5px);
+}
+
+@media (max-width: 700px) {
+    .big-card {
+        margin-left: 25vh;
+    }
+}
+
+@media (max-width: 650px) {
+    .big-card {
+        margin-left: 10vh;
+    }
+}
+
+@media (max-width: 570px) {
+    .big-card {
+        margin-left: 28px;
+    }
+}
+
+@media (max-width: 420px) {
+    .poke-big {
+        width: 110%;
+    }
+
+    .poke-big img {
+        margin-top: 20px;
+        height: 20px;
+    }
+
+    .poke-big h1 {
+        margin-top: 20px;
+        font-size: 24px;
+    }
+
+    .attributs {
+        width: 110%;
+    }
+}
+
+@media (max-width: 380px) {
+    .card-design {
+        width: 270px;
+    }
+
+    .card-design:hover {
+        scale: 1.05;
+    }
+}
