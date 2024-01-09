@@ -14,7 +14,6 @@ body::-webkit-scrollbar-thumb {
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    max-width: 1920px;
 }
 
 nav {
@@ -50,6 +49,7 @@ nav button {
 nav button:hover {
    scale: 1.05;
    transition: 250ms;
+   cursor: pointer;
 }
 
 #loading-bar {
@@ -60,6 +60,7 @@ nav button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 1920px;
 }
 
 .card-design {
@@ -70,10 +71,6 @@ nav button:hover {
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-image: url(/img/poke_ball.png);
-    background-repeat: no-repeat;
-    background-position: 200px 80px;
-    background-size: 150px;
 }
 
 .card-design:hover {

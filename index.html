@@ -19,7 +19,7 @@
         </div>
         <div id="loading-bar" class="d-none"><img src="img/spin.gif"></div>
         <div>
-            <input id="input" placeholder="Search Pokemon..."></input>
+            <input type="text" id="input" placeholder="Search Pokemon..." onkeydown="submitOnEnter(event)">
             <button onclick="filterPokemon()">Search</button>
         </div>
     </nav>

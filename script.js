@@ -123,6 +123,13 @@ function handleHiddenCard(card) {
     }
 }
 
+function submitOnEnter(event) {
+    if (event.key === 'Enter') {
+        filterPokemon();
+        event.preventDefault();
+    }
+}
+
 function createPokemonCard(element, index) {
     const query = element;
     let pokelink = `https://pokeapi.co/api/v2/pokemon/${query}`;
@@ -159,7 +166,7 @@ async function createBigCard(name, image, backgroundColor) {
     document.getElementById('show-card').innerHTML = /*html*/`
         <div class="big-card">
             <div class="poke-big" style="background-color: ${backgroundColor};">
-                <img src="img/back.png" onclick="lastCard()">
+                <img id="back" src="img/back.png" onclick="lastCard()">
                 <img src="img/next.png" onclick="nextCard()">
                 <h1>${name}</h1>
                 <img src="img/close.png" onclick="closeCard()">
@@ -179,6 +186,8 @@ async function createBigCard(name, image, backgroundColor) {
         </div>
     `
         ;
+     
+    hideArrow();
     showAbout();
 }
 
@@ -251,6 +260,15 @@ function lastCard() {
         createBigCard(name, image, backgroundColor, type);
     }
 }
+
+function hideArrow() {
+    if (currentPokemonIndex === 0) {
+        document.getElementById('back').style.display = 'none';
+    } else {
+        document.getElementById('back').style.display = 'block';
+    }
+}
+
 
 function closeCard() {
     document.getElementById('show-card').classList.add('d-none');
